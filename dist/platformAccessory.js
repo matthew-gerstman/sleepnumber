@@ -171,6 +171,7 @@ class SleepNumberFlexFrame {
             if (value == null) {
                 return;
             }
+            this.currentState = value;
             const preset = value ? 1 : 4;
             this.sleepNumberApi.preset("L", preset, (data, err) => {
                 console.log({ data, err });
@@ -221,13 +222,15 @@ class SleepNumberFlexFrame {
                 this.accessory.addService(this.platform.Service.Lightbulb, "FlexFrame", "FlexFrame");
             foundationService
                 .getCharacteristic(Characteristic.On)
-                .on("change", (oldValue, newValue) => {
+                .on("change", (oldValue, newValue, callback) => {
                 this.log.debug("Foundation" + newValue);
                 this.setFoundation(newValue);
+                callback(null, newValue);
             })
-                .on("set", (newValue) => {
+                .on("set", (newValue, callback) => {
                 this.log.debug("Foundation" + newValue);
                 this.setFoundation(newValue);
+                callback(null, newValue);
             })
                 .on("get", (callback) => this.getFoundation(callback));
             setInterval(async () => {
