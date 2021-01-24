@@ -1,8 +1,4 @@
-# Ignore compiled code
-dist
-
-# ------------- Defaults ------------- #
-
+ ------------- Defaults ------------- #
 # Logs
 logs
 *.log
