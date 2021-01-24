@@ -282,6 +282,8 @@ export class SleepNumberFlexFrame {
       return;
     }
 
+    this.currentState = value;
+
     const preset = value ? 1 : 4;
     this.sleepNumberApi.preset("L", preset, (data, err) => {
       console.log({ data, err });
