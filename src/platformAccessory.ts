@@ -353,9 +353,10 @@ export class SleepNumberFlexFrame {
 
     foundationService
       .getCharacteristic(Characteristic.On)
-      .on("change", (oldValue, newValue) => {
+      .on("change", (oldValue, newValue, callback) => {
         this.log.debug("Foundation" + newValue);
         this.setFoundation(newValue);
+        callback(null, newValue);
       })
       .on("set", (newValue, callback) => {
         this.log.debug("Foundation" + newValue);
