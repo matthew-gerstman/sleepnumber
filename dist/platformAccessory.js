@@ -176,7 +176,7 @@ class SleepNumberFlexFrame {
             this.sleepNumberApi.preset("L", preset, (data, err) => {
                 console.log({ data, err });
             });
-        }, 5000);
+        }, 5000, { leading: true, trailing: true });
         this.getFoundation = (callback) => {
             return callback(null, this.currentState);
         };

@@ -273,22 +273,26 @@ export class SleepNumberFlexFrame {
   };
 
   // Send a new foundation position to the bed
-  setFoundation = debounce(async (value) => {
-    // await this.waitForBedToStopMoving(); // wait for bed to stop moving
+  setFoundation = debounce(
+    async (value) => {
+      // await this.waitForBedToStopMoving(); // wait for bed to stop moving
 
-    this.log.debug("Setting foundation position " + value);
+      this.log.debug("Setting foundation position " + value);
 
-    if (value == null) {
-      return;
-    }
+      if (value == null) {
+        return;
+      }
 
-    this.currentState = value;
+      this.currentState = value;
 
-    const preset = value ? 1 : 4;
-    this.sleepNumberApi.preset("L", preset, (data, err) => {
-      console.log({ data, err });
-    });
-  }, 5000);
+      const preset = value ? 1 : 4;
+      this.sleepNumberApi.preset("L", preset, (data, err) => {
+        console.log({ data, err });
+      });
+    },
+    5000,
+    { leading: true, trailing: true }
+  );
 
   getFoundation = (callback) => {
     return callback(null, this.currentState);
