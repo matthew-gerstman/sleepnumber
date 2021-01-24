@@ -225,12 +225,10 @@ class SleepNumberFlexFrame {
                 .on("change", (oldValue, newValue, callback) => {
                 this.log.debug("Foundation" + newValue);
                 this.setFoundation(newValue);
-                callback(null, newValue);
             })
                 .on("set", (newValue, callback) => {
                 this.log.debug("Foundation" + newValue);
                 this.setFoundation(newValue);
-                callback(null, newValue);
             })
                 .on("get", (callback) => this.getFoundation(callback));
             setInterval(async () => {
