@@ -357,9 +357,10 @@ export class SleepNumberFlexFrame {
         this.log.debug("Foundation" + newValue);
         this.setFoundation(newValue);
       })
-      .on("set", (newValue) => {
+      .on("set", (newValue, callback) => {
         this.log.debug("Foundation" + newValue);
         this.setFoundation(newValue);
+        callback(null, newValue);
       })
       .on("get", (callback) => this.getFoundation(callback));
 
