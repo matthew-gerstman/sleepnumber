@@ -1,17 +1,10 @@
 {
   "private": true,
-  "displayName": "Plugin Name",
-  "name": "homebridge-plugin-name",
+  "displayName": "SleepNumber",
+  "name": "homebridge-sleep-number",
   "version": "1.0.0",
   "description": "A short description about what your plugin does.",
   "license": "Apache-2.0",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/USERNAME/GITHUB_PROJECT_NAME.git"
-  },
-  "bugs": {
-    "url": "https://github.com/USERNAME/GITHUB_PROJECT_NAME/issues"
-  },
   "engines": {
     "node": ">=10.17.0",
     "homebridge": ">=1.0.0"
@@ -26,7 +19,11 @@
   "keywords": [
     "homebridge-plugin"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "lodash.debounce": "^4.0.8",    
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.9"
+  },
   "devDependencies": {
     "@types/node": "^14.14.6",
     "@typescript-eslint/eslint-plugin": "^4.6.1",
@@ -34,6 +31,7 @@
     "eslint": "^7.13.0",
     "homebridge": "^1.2.3",
     "nodemon": "^2.0.6",
+    "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.5"
