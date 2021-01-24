@@ -353,11 +353,11 @@ export class SleepNumberFlexFrame {
 
     foundationService
       .getCharacteristic(Characteristic.On)
-      .on("change", (oldValue, newValue, callback) => {
+      .on("change", (oldValue, newValue) => {
         this.log.debug("Foundation" + newValue);
         this.setFoundation(newValue);
       })
-      .on("set", (newValue, callback) => {
+      .on("set", (newValue) => {
         this.log.debug("Foundation" + newValue);
         this.setFoundation(newValue);
       })
